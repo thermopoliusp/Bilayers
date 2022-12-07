@@ -1,0 +1,14 @@
+; HEXANE - modified from Martini_v3.0.0, edited by Lilian. Validated for 300K and 1 bar
+
+[moleculetype]
+; molname 	nrexcl
+  HEX 		1
+
+[atoms]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge	mass
+  1     SC2 	1 	HEX 	C1 	1 	0 	43.09
+  2     SC2 	1 	HEX 	C2	2 	0	43.09
+
+[bonds]
+; i j 	funct 	length 	force.c.
+  1 2 	1 	0.51 	5000

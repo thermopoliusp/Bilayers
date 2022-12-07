@@ -1,0 +1,9 @@
+; ETHANOL - modified from Martini_v3.0.0, edited by Lilian. Validated for 300K and 1 bar
+
+[ moleculetype ]
+; molname  	nrexcl
+  ETO 	    	1
+
+[ atoms ]
+;id 	type 	resnr 	residu 	atom 	cgnr 	charge	mass
+ 1 	SP1d 	1 	ETO 	ETO	1 	0	46.069
