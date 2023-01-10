@@ -2,7 +2,7 @@
 
 [GROMACS](https://www.gromacs.org/) was used to perform molecular dynamics simulations. 
 
-The GROMACS input files used in the manuscript, including [Martini 3 force-field](http://www.cgmartini.nl/) parameters and the [Molecular dynamics parameters (.mdp options)](https://manual.gromacs.org/documentation/current/user-guide/mdp-options.html), are available here.
+The GROMACS input files used in the manuscript, including [Martini 3 force field](http://www.cgmartini.nl/) parameters and the [Molecular dynamics parameters (.mdp options)](https://manual.gromacs.org/documentation/current/user-guide/mdp-options.html), are available here.
 
 
 
