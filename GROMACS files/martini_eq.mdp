@@ -1,16 +1,4 @@
-title                    = Martini
-
-
-; TIMESTEP IN MARTINI 
-; Most simulations are numerically stable 
-; with dt=40 fs, some (especially rings and polarizable water) require 20-30 fs.
-; Note that time steps of 40 fs and larger may create local heating or 
-; cooling in your system. Although the use of a heat bath will globally 
-; remove this effect, it is advised to check consistency of 
-; your results for somewhat smaller time steps in the range 20-30 fs.
-; Time steps exceeding 40 fs should not be used; time steps smaller
-; than 20 fs are also not required unless specifically stated in the itp file.
-
+; Equilibration mdp options
 
 integrator               = md
 dt                       = 0.03  
@@ -21,9 +9,9 @@ comm-grps		 =
 nstxout                  = 0
 nstvout                  = 0
 nstfout                  = 0
-nstlog                   = 10000 ; Output frequency for energies to log file 
-nstenergy                = 100   ; Output frequency for energies to energy file
-nstxtcout                = 1000  ; Output frequency for .xtc file
+nstlog                   = 10000  
+nstenergy                = 100   
+nstxtcout                = 1000  
 xtc_precision            = 100
 xtc-grps                 = 
 energygrps               = POPC LLL ETO
@@ -36,20 +24,20 @@ verlet-buffer-tolerance  = 0.005
 
 coulombtype              = reaction-field
 rcoulomb                 = 1.1
-epsilon_r                = 15	; 2.5 (with polarizable water)
+epsilon_r                = 15	
 epsilon_rf               = 0 
-vdw_type                 = cutoff ;(for use with Verlet-pairlist)   
-rvdw                     = 1.1 ;(for use with Verlet-pairlist)
+vdw_type                 = cutoff   
+rvdw                     = 1.1
 
 tcoupl                   = v-rescale 
 tc-grps                  = POPC LLL ETO
 tau_t                    = 1.0  1.0  1.0 
 ref_t                    = 300 300  300 
-Pcoupl                   = berendsen  ; parrinello-rahman
-Pcoupltype               = isotropic  ; semiisotropic
-tau_p                    = 6.0        ; 12.0  ;parrinello-rahman is more stable with larger tau-p, DdJ, 20130422
-compressibility          = 3e-4       ; 3e-4
-ref_p                    = 1.0        ; 1.0 
+Pcoupl                   = berendsen
+Pcoupltype               = isotropic
+tau_p                    = 6.0
+compressibility          = 3e-4
+ref_p                    = 1.0  
 
 gen_vel                  = yes
 gen_temp                 = 300
