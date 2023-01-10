@@ -14,7 +14,7 @@ nstenergy                = 100
 nstxtcout                = 1000  
 xtc_precision            = 100
 xtc-grps                 = 
-energygrps               = POPC LLL ETO
+energygrps               = POPC LLL ETO ; these groups may change depending on the simulated system
 
 cutoff-scheme            = Verlet
 nstlist                  = 20
@@ -30,7 +30,7 @@ vdw_type                 = cutoff
 rvdw                     = 1.1
 
 tcoupl                   = v-rescale 
-tc-grps                  = POPC LLL ETO
+tc-grps                  = POPC LLL ETO ; these groups may change depending on the simulated system
 tau_t                    = 1.0  1.0  1.0 
 ref_t                    = 300 300  300 
 Pcoupl                   = berendsen
