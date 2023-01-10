@@ -1,3 +1,5 @@
+; Minimization mdp options
+
 integrator               = steep
 nsteps                   = 10000
 nstxout                  = 0
