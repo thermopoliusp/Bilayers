@@ -1,0 +1,28 @@
+#
+# Example of random configuration of molecules in a 220x220x220 Angstrom box
+# In this example 150 water groups (Martini 3) plus 1191 molecules of LiLiLi, 50 molecules of
+# POPC and 43276 molecules of hexane are allocated in the box.
+
+tolerance 2.0
+filetype pdb
+output output.pdb
+
+structure ./molecules/waterCG.pdb 
+  number 150
+  inside box 0. 0. 0. 220. 220. 220. 
+end structure
+
+structure ./molecules/LiLiLi.pdb
+  number 1191
+  inside box 0. 0. 0. 220. 220. 220. 
+end structure
+
+structure ./molecules/POPC.pdb
+  number 50
+  inside box 0. 0. 0. 220. 220. 220. 
+end structure
+
+structure ./molecules/HEX.pdb
+  number 43276
+  inside box 0. 0. 0. 220. 220. 220. 
+end structure

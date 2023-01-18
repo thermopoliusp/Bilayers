@@ -1,0 +1,89 @@
+#
+# Lipid double mono-layer with water over and below, and TAG in between
+#
+# For more information, see: https://m3g.github.io/packmol/examples.shtml
+
+
+# Every atom from diferent molecules will be far from each other at
+# least 2.0 Anstrons at the solution.
+
+tolerance 2.0 
+
+# Coordinate file types will be in pdb format (keyword not required for
+# pdb file format, but required for tinker, xyz or moldy).
+
+filetype pdb
+
+# The output pdb file
+
+output bilayer.pdb
+
+# Water molecules below the lipids:
+# The first three numbers are the minimum x, y, z coordinates for this
+# molecules, the last three are maximum coordinates. The box defined
+# here has 75. Angstrom sides in the x and y directions, and a 30.
+# Angstrom in the z direction.
+
+structure ./molecules/waterCG.pdb 
+  number 2045
+  inside box 0. 0. -30. 75. 75. 0.
+end structure
+
+# Water molecules over the lipids:
+# The same as the input above, but the box of water molecules will be
+# placed in a diferent region of space.
+  
+structure ./molecules/waterCG.pdb
+  number 2045
+  inside box 0. 0. 120. 75. 75. 150.
+end structure
+
+# Triacylglycerol: 
+# The first three numbers are the minimum x, y, z coordinates for this
+# molecules, the last three are maximum coordinates. The box defined
+# here has 75. Angstrom sides in the x and y directions, and a 100.
+# Angstrom in the z direction.
+
+structure ./molecules/LiLiLi_CG.pdb
+  number 204
+  inside box 0. 0. 20. 75. 75. 100.
+end structure
+
+# First lipid layer: the polar head is oriented to down to the water
+# molecules.
+# 102 lipids will be put inside a box of side 75. in the x and y
+# directions and 20. in the z direction. 
+# The atoms 1 and 2 of the pdb file of this
+# lipid, which belong to the polar head, will be constrained to be
+# below the the plane z = 5., and the atoms 11 and 12, which are the
+# hydrophobic end of the lipid will be constrained to be over the plane
+# z = 16. Therefore, all the lipids will be oriented, with their polar
+# heads pointing to the water box below. 
+ 
+structure ./molecules/POPC.pdb 
+  number 102
+  inside box 0. 0. 0. 75. 75. 20.
+  atoms 1 2
+    below plane 0. 0. 1. 5.
+  end atoms
+  atoms 11 12
+    over plane 0. 0. 1. 16.
+  end atoms
+end structure 
+
+# Second lipid layer: the polar head points up to the water molecules. 
+# The same thing as the input above, but defining a new lipid layer,
+# with the oposite orientation of the lipid molecules in such a way that
+# the polar head points to the water box that is over the lipid bilayer.
+  
+structure ./molecules/POPC.pdb 
+  number 102
+  inside box 0. 0. 100. 75. 75. 120.
+  atoms 11 12
+    below plane 0. 0. 1. 105.
+  end atoms
+  atoms 1 2
+    over plane 0. 0. 1. 115. 
+  end atoms
+end structure 
+
